@@ -1,13 +1,16 @@
 class ContaCorrente(
     titular: String,
-    numero: Int
+    numero: Int,
 ) : Conta(
     titular = titular,
     numero = numero,
 ) {
     override fun saca(valor: Double): Boolean {
         val valorComTaxa = valor + 0.1
-        val saca = super.saca(valorComTaxa)
-        return true
+        if(this.saldo >= valor){
+            this.saldo -= valor
+            return true
+        }
+        return false
     }
 }
