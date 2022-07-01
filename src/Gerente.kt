@@ -8,9 +8,10 @@ class Gerente(
     cpf = cpf,
     salario = salario,
 ) {
-//    fun bonificacao(): Double {
-//        return salario * .2
-//    }
+    val bonificacao: Double
+        get() {
+            return salario * .1 + salario
+        }
     fun autentica(senha: Int): Boolean{
         if(this.senha == senha) {
             return true
